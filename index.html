@@ -7,6 +7,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script defer src="js/validate.js"></script>
     <script defer src="js/nav.js"></script>
+    <script defer src="js/login.js"></script>
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Wonder-Y</title>
   </head>
@@ -57,19 +58,57 @@
                 <button class="btn-close" data-bs-dismiss="modal"></button>
               </div>
               <div class="modal-body" >
-                <form id="login-form" action="profile.html">
+                <form id="signup-form" action="profile.html" novalidate>
                   <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="email" class="form-control" id="username" required />
-                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                    <input type="text" class="form-control" id="username" required pattern="^[a-zA-Z0-9_]*$" oninvalid="this.setCustomValidity('Username must not contain punctuation symbols apart from underscore (_).')" oninput="this.setCustomValidity('')" />
+                    <div id="usernameError" class="text-danger"></div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Norof mail</label>
+                    <input type="email" class="form-control" id="email" required pattern=".+@(noroff\.no|stud\.noroff\.no)$" oninvalid="this.setCustomValidity('Please enter a valid noroff.no or stud.noroff.no email.')" oninput="this.setCustomValidity('')" />
+                    <div id="emailError" class="text-danger"></div>
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <div class="form-text">Password must be at least 8 characters long.</div>
-                    <input type="password" class="form-control" id="password" required pattern=".{8,}" />
+                    <input type="password" class="form-control" id="password" required pattern=".{8,}" oninvalid="this.setCustomValidity('Password must be at least 8 characters long.')" oninput="this.setCustomValidity('')" />
+                    <div id="passwordError" class="text-danger"></div>
                   </div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                  <div class="mb-3">
+                    <label for="userImage" class="form-label">Upload Image</label>
+                    <input type="file" class="form-control" id="userImage" accept=".jpg, .jpeg, .png"/>
+                    <div id="imageError" class="text-danger"></div>
                   </div>
+                  <button type="submit" class="btn btn-primary">Sign up</button>
+                  <button type="button" class="btn btn-secondary" id="goToLogin">Or sign in</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <button class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
+        <div class="modal" tabindex="-1" id="loginModal">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Log in</h2>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form id="login-form" action="profile.html" novalidate>
+                  <div class="mb-3">
+                    <label for="loginUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="loginUsername" required pattern="^[a-zA-Z0-9_]*$" oninvalid="this.setCustomValidity('Username must not contain punctuation symbols apart from underscore (_).')" oninput="this.setCustomValidity('')" />
+                    <div id="loginUsernameError" class="text-danger"></div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" required pattern=".{8,}" oninvalid="this.setCustomValidity('Password must be at least 8 characters long.')" oninput="this.setCustomValidity('')" />
+                    <div id="loginPasswordError" class="text-danger"></div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Sign in</button>
                 </form>
               </div>
             </div>
