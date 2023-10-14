@@ -1,3 +1,4 @@
+
 var form = document.getElementById("signup-form");
 
 form.addEventListener("submit", function (event) {
@@ -20,11 +21,22 @@ form.addEventListener("submit", function (event) {
   if (!form.checkValidity()) {
     event.preventDefault();
     event.stopPropagation();
-  } else {
-    localStorage.setItem("formValidated", "true");
   }
 
   form.classList.add("was-validated");
+});
+
+// Add input event listeners to clear error messages
+username.addEventListener('input', function() {
+  document.getElementById("usernameError").innerText = "";
+});
+
+email.addEventListener('input', function() {
+  document.getElementById("emailError").innerText = "";
+});
+
+password.addEventListener('input', function() {
+  document.getElementById("passwordError").innerText = "";
 });
 
 var mymodal = document.getElementById("mymodal");

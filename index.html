@@ -8,6 +8,8 @@
     <script defer src="js/validate.js"></script>
     <script defer src="js/nav.js"></script>
     <script defer src="js/login.js"></script>
+    <script defer src="js/api.js"></script>
+    <script defer src="js/Signup.js"></script>
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Wonder-Y</title>
   </head>
@@ -54,7 +56,7 @@
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <H2>Sign in</H2>
+                <H2>Sign up</H2>
                 <button class="btn-close" data-bs-dismiss="modal"></button>
               </div>
               <div class="modal-body" >
@@ -79,7 +81,7 @@
                     <input type="file" class="form-control" id="userImage" accept=".jpg, .jpeg, .png"/>
                     <div id="imageError" class="text-danger"></div>
                   </div>
-                  <button type="submit" class="btn btn-primary">Sign up</button>
+                  <button type="submit" class="btn btn-primary" id="signupButton">Sign up</button>
                   <button type="button" class="btn btn-secondary" id="goToLogin">Or sign in</button>
                 </form>
               </div>
@@ -99,7 +101,7 @@
               <div class="modal-body">
                 <form id="login-form" action="profile.html" novalidate>
                   <div class="mb-3">
-                    <label for="loginUsername" class="form-label">Username</label>
+                    <label for="loginUsername" class="form-label">Noroff mail</label>
                     <input type="text" class="form-control" id="loginUsername" required pattern="^[a-zA-Z0-9_]*$" oninvalid="this.setCustomValidity('Username must not contain punctuation symbols apart from underscore (_).')" oninput="this.setCustomValidity('')" />
                     <div id="loginUsernameError" class="text-danger"></div>
                   </div>
