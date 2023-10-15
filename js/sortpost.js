@@ -5,7 +5,9 @@
  * @param {string} option - The selected option.
  * @returns {Array} - The sorted array of posts.
  */
-function sortPosts(posts, sortOption) {
+export function sortPosts(posts, sortOption) {
+    if (!posts) return [];
+
     switch (sortOption) {
         case "date":
             return posts.sort((a, b) => new Date(b.created) - new Date(a.created));
