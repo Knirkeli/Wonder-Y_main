@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="dist/css/index.css" />
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script defer src="js/nav.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script type="module" src="js/nav.mjs"></script>
+    <script type="module" src="js/createpost.mjs"></script>
+    <script type="module" src="js/displayfeed.mjs"></script>
+    <script type="module" src="js/sort.mjs"></script>
+    <script type="module" src="js/search.mjs"></script>
+    <script type="module" src="js/singlepost.mjs"></script>
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Feed</title>
   </head>
@@ -66,14 +71,13 @@
           <div class="col-md-8">
             <h2 class="mb-4 text-center">Search posts</h2>
             <form class="d-flex flex-column flex-md-row mb-3 justify-content-center">
-              <input class="form-control me-2 mb-3 mb-md-0" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control me-2 mb-3 mb-md-0" type="search" placeholder="Search" aria-label="Search" id="searchPost">
               <button class="btn btn-outline-success mb-3 mb-md-0 me-md-3" type="submit">Search</button>
               <div class="d-flex align-items-center justify-content-center">
                 <label for="sortOption" class="me-2 mb-0">Sort by:</label>
                 <select class="form-control w-auto" id="sortOption">
                   <option value="date">Date</option>
                   <option value="title">Title</option>
-                  <option value="author">Author</option>
                 </select>
               </div>
             </form>
@@ -83,7 +87,7 @@
       </div>
       <div class="container col-12 pb-5">
         <div class="row gx-md-5">
-          <div class="col-12 mt-5 col-lg-6">
+          <div class="col-12 mt-5 col-lg-6" id="postCard">
             <div class="card">
               <div class="card-title text-center border-bottom">
                 <h3>Science Baby</h3>
@@ -97,13 +101,13 @@
                     <p class="card-text">Just pondered on the wonder of the cosmos</p>
                   </div>
                   <div class="col-2 text-center ">
-                    <button type="button" class="btn btn-success my-btn">Ponder this</button>
+                    <button type="button" class="btn btn-success my-btn" id="fetch-post-button">Ponder this</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-12 mt-5 col-lg-6">
+          <div class="col-12 mt-5 col-lg-6" id="postCard">
             <div class="card">
               <div class="card-title text-center border-bottom">
                 <h3>Science Baby</h3>
@@ -117,136 +121,14 @@
                     <p class="card-text">Just pondered on the wonder of the cosmos</p>
                   </div>
                   <div class="col-2 text-center ">
-                    <button type="button" class="btn btn-success my-btn">Ponder this</button>
+                    <button type="button" class="btn btn-success my-btn  id="fetch-post-button">Ponder this</button>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-12 mt-5 col-lg-6">
-            <div class="card">
-              <div class="card-title text-center border-bottom">
-                <h3>Science Baby</h3>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-2 d-none d-xl-block">
-                    <img src="img/baby happy.jpeg" alt="happy baby's profile picture" class="w-25 mx-auto d-flex justify-content-center">
-                  </div>
-                  <div class="col-8 text-center ">
-                    <p class="card-text">Just pondered on the wonder of the cosmos</p>
-                  </div>
-                  <div class="col-2 text-center ">
-                    <button type="button" class="btn btn-success my-btn">Ponder this</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 mt-5 col-lg-6">
-            <div class="card">
-              <div class="card-title text-center border-bottom">
-                <h3>Science Baby</h3>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-2 d-none d-xl-block">
-                    <img src="img/baby happy.jpeg" alt="happy baby's profile picture" class="w-25 mx-auto d-flex justify-content-center">
-                  </div>
-                  <div class="col-8 text-center ">
-                    <p class="card-text">Just pondered on the wonder of the cosmos</p>
-                  </div>
-                  <div class="col-2 text-center ">
-                    <button type="button" class="btn btn-success my-btn">Ponder this</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 mt-5 col-lg-6">
-            <div class="card">
-              <div class="card-title text-center border-bottom">
-                <h3>Science Baby</h3>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-2 d-none d-xl-block">
-                    <img src="img/baby happy.jpeg" alt="happy baby's profile picture" class="w-25 mx-auto d-flex justify-content-center">
-                  </div>
-                  <div class="col-8 text-center ">
-                    <p class="card-text">Just pondered on the wonder of the cosmos</p>
-                  </div>
-                  <div class="col-2 text-center ">
-                    <button type="button" class="btn btn-success my-btn">Ponder this</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 mt-5 col-lg-6">
-            <div class="card">
-              <div class="card-title text-center border-bottom">
-                <h3>Science Baby</h3>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-2 d-none d-xl-block">
-                    <img src="img/baby happy.jpeg" alt="happy baby's profile picture" class="w-25 mx-auto d-flex justify-content-center">
-                  </div>
-                  <div class="col-8 text-center ">
-                    <p class="card-text">Just pondered on the wonder of the cosmos</p>
-                  </div>
-                  <div class="col-2 text-center ">
-                    <button type="button" class="btn btn-success my-btn">Ponder this</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 mt-5 col-lg-6">
-            <div class="card">
-              <div class="card-title text-center border-bottom">
-                <h3>Science Baby</h3>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-2 d-none d-xl-block">
-                    <img src="img/baby happy.jpeg" alt="happy baby's profile picture" class="w-25 mx-auto d-flex justify-content-center">
-                  </div>
-                  <div class="col-8 text-center ">
-                    <p class="card-text">Just pondered on the wonder of the cosmos</p>
-                  </div>
-                  <div class="col-2 text-center ">
-                    <button type="button" class="btn btn-success my-btn">Ponder this</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 mt-5 col-lg-6">
-            <div class="card">
-              <div class="card-title text-center border-bottom">
-                <h3>Science Baby</h3>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-2 d-none d-xl-block">
-                    <img src="img/baby happy.jpeg" alt="happy baby's profile picture" class="w-25 mx-auto d-flex justify-content-center">
-                  </div>
-                  <div class="col-8 text-center ">
-                    <p class="card-text">Just pondered on the wonder of the cosmos</p>
-                  </div>
-                  <div class="col-2 text-center ">
-                    <button type="button" class="btn btn-success my-btn">Ponder this</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
+          </div>         
         </div>
-      </div>
-      
+      </div>      
         </main>
         <footer class="footer bg-light fixed-bottom">
           <div class="container text-center">
