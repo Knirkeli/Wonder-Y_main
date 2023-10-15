@@ -31,6 +31,20 @@ form.addEventListener("submit", async function (event) {
   
     try {
       // Set up fetch options
+      /**
+       * Object containing the data to be sent in a POST request to the server.
+       * @typedef {Object} PostData
+       * @property {string} method - The HTTP method to be used in the request.
+       * @property {Object} headers - The headers to be included in the request.
+       * @property {string} headers.Content-Type - The content type of the request body.
+       * @property {Object} body - The data to be sent in the request body, in JSON format.
+       */
+
+      /**
+       * Constructs the POST request data object.
+       * @param {Object} user - The user data to be sent in the request body.
+       * @returns {PostData} - The POST request data object.
+       */
       const postData = {
         method: "POST",
         headers: {

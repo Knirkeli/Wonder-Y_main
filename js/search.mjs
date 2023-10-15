@@ -1,5 +1,11 @@
 import { displayPosts } from './displayfeed.mjs';
 
+/**
+ * Searches for posts that include the given search term in their title, and displays the filtered posts.
+ * @async
+ * @function searchPosts
+ * @param {string} searchTerm - The term to search for in the post titles.
+ */
 export const searchPosts = async (searchTerm) => {
     const token = localStorage.getItem("accessToken");
 
@@ -29,6 +35,9 @@ export const searchPosts = async (searchTerm) => {
 };
 
 // Event listener for the search form
+/**
+ * Adds an event listener to the search form that triggers a post search when the form is submitted.
+ */
 const searchForm = document.querySelector("form.d-flex.flex-column.flex-md-row");
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();

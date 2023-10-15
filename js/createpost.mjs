@@ -1,3 +1,9 @@
+/**
+ * Creates a new post and sends it to the server.
+ * @async
+ * @function createPost
+ * @returns {Promise<void>}
+ */
 export const createPost = async () => {
     try {
         const title = document.querySelector("#postTitle").value;

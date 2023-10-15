@@ -78,6 +78,12 @@ form.addEventListener("submit", function (event) {
   form.classList.add("was-validated");
 });
 
+/**
+ * Opens the signup modal.
+ * @function
+ * @name openSignupModal
+ * @returns {void}
+ */
 function openSignupModal() {
 var myModal = bootstrap.Modal.getInstance(document.getElementById('mymodal'));
 myModal.show();

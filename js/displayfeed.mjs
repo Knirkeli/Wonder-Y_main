@@ -1,3 +1,9 @@
+/**
+ * Fetches posts from the API and displays them on the page.
+ * @async
+ * @function displayPosts
+ * @returns {Promise<void>}
+ */
 export const displayPosts = async () => {
     const token = localStorage.getItem("accessToken");
 

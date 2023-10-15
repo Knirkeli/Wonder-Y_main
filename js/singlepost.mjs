@@ -1,3 +1,9 @@
+/**
+ * Fetches a post and updates the HTML with the post data.
+ * @async
+ * @function fetchPost
+ * @throws Will throw an error if the Post ID is not found in URL.
+ */
 const fetchPost = async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get("id");
@@ -40,20 +46,27 @@ const fetchPost = async () => {
     if (postBody !== null) {
       postBody.textContent = responseData.body;
     }
-  };
-  
-  const button = document.querySelector("#fetch-post-button");
-  if (button !== null) {
-    button.addEventListener("click", () => {
-      console.log("Button clicked");
-      fetchPost();
-    });
-  }
-  
-  // Call the function after the page has loaded
-  window.addEventListener("load", fetchPost);
+};
 
-  const deleteButton = document.getElementById("delete-post-button");
+/**
+ * Fetches a post when the button is clicked.
+ */
+const button = document.querySelector("#fetch-post-button");
+if (button !== null) {
+  button.addEventListener("click", () => {
+    console.log("Button clicked");
+    fetchPost();
+  });
+}
+
+// Call the function after the page has loaded
+window.addEventListener("load", fetchPost);
+
+/**
+ * Deletes a post when the delete button is clicked.
+ * @async
+ */
+const deleteButton = document.getElementById("delete-post-button");
 
 if (deleteButton !== null) {
   deleteButton.addEventListener("click", async () => {
