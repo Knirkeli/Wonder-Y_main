@@ -44,36 +44,36 @@ export const displayPosts = async () => {
     // Iterate over each post and create a card for it
     sortedPosts.forEach(post => {
         const card = `
-            <div class="col-12 mt-5 col-lg-6" data-post-id="${post.id}">
-                <div class="card">
-                    <div class="card-title text-center border-bottom">
-                        <h3>${post.title}</h3>
+    <div class="col-12 mt-5 col-lg-6" data-post-id="${post.id}">
+        <div class="card">
+            <div class="card-title text-center border-bottom">
+                <h3>${post.title}</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8 text-center ">
+                        <p class="card-text">${post.body}</p>
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-8 text-center ">
-                                <p class="card-text">${post.body}</p>
-                            </div>
-                            <div class="col-2 text-center ">
-                                <button type="button" class="btn btn-success my-btn" data-post-id="${post.id}">Ponder this</button>
-                            </div>
-                        </div>
+                    <div class="col-2 text-center ">
+                        <button type="button" class="btn btn-success my-btn" data-post-id="${post.id}" data-ponder-id="${post.ponderId}">Ponder this</button>
                     </div>
                 </div>
-            </div>`;
+            </div>
+        </div>
+    </div>`;
 
         // Append the card to the container
         container.innerHTML += card;
     });
-
-    // Add event listener to the "Ponder this" buttons
-    const ponderButtons = document.querySelectorAll("button[data-post-id]");
-    ponderButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const postId = button.getAttribute("data-post-id");
-            window.location.href = `ponder.html?id=${postId}`;
-        });
-    });
+// Add event listener to the "Ponder this" buttons
+const ponderButtons = document.querySelectorAll("button[data-post-id][data-ponder-id]");
+ponderButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const postId = button.getAttribute("data-post-id");
+    const ponderId = button.getAttribute("data-ponder-id");
+    window.location.href = `ponder.html?id=${postId}&ponderId=${ponderId}`;
+  });
+});
 };
 
 // Call the function after the page has loaded
