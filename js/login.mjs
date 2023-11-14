@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 var form = document.getElementById("login-form");
-var username = document.getElementById("loginUsername");
+var usermail = document.getElementById("loginMail");
 var password = document.getElementById("loginPassword");
 
-username.addEventListener('input', function() {
-document.getElementById("loginUsernameError").innerText = "";
+usermail.addEventListener('input', function() {
+document.getElementById("loginMailError").innerText = "";
 });
 
 password.addEventListener('input', function() {
@@ -22,9 +22,9 @@ document.getElementById("loginPasswordError").innerText = "";
 form.addEventListener("submit", function (event) {
   console.log('Form submit event triggered');
 
-  if (!username.checkValidity()) {
+  if (!usermail.checkValidity()) {
     console.log('Username is not valid');
-    document.getElementById("loginUsernameError").innerText = "Username must not contain punctuation symbols apart from underscore (_).";
+    document.getElementById("loginMailError").innerText = "Must be a valid @noroff.no or @stud.noroff.no mail";
   }
 
   if (!password.checkValidity()) {
