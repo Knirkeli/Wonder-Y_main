@@ -2,6 +2,10 @@
 var form = document.getElementById("signup-form");
 
 form.addEventListener("submit", function (event) {
+  /**
+   * Retrieves the HTML element with the ID "username" and assigns it to the variable "username".
+   * @type {HTMLElement}
+   */
   var username = document.getElementById("username");
   var email = document.getElementById("email");
   var password = document.getElementById("password");
