@@ -10,6 +10,7 @@
     <script type="module" src="js/search.mjs"></script>
     <script type="module" src="js/singlepost.mjs"></script>
     <script type="module" src="js/react.mjs"></script>
+    <script type="module" src="js/delete_post.mjs"></script>
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Post</title>
   </head>
@@ -50,53 +51,55 @@
     </header>
     <main>
       <div class="container vh-60 d-flex align-items-center justify-content-center">
-          <div class="row">
-              <div class="col-12 col-md-10 col-lg-8">
-                  <div class="card shadow p-3 mb-5 bg-white rounded">
-                      <div class="card-header d-flex justify-content-between align-items-center">
-                          <div class="d-flex align-items-center">
-                              <img src="img/baby happy.jpeg" alt="User's profile picture" class="rounded-circle mr-2" width="50" height="50">
-                              <h5 class="card-title mb-0">Title</h5>
-                          </div>
-                          <button type="button" class="close" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                      <img src="img/trophy.jpg" class="card-img-top" alt="Post image">
-                      <div class="card-body overflow-auto">
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porttitor.</p>
-                      </div>
-                      <div class="card-footer">
-                        <div class="row">
-                            <div class="col-8">
-                                <div id="comments-section">
-                                    <form id="post-form">
-                                        <div class="form-group">
-                                            <label for="new-comment">Add a comment:</label>
-                                            <textarea class="form-control" id="new-comment" rows="3"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </form>
-                                    <ul class="list-group list-group-flush">
-                                        <!-- Existing comments will go here -->
-                                        <li class="list-group-item">Cras justo odio</li>
-                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-4 d-flex justify-content-end">
-                                <div id="reactions">
-                                    <button type="button" class="btn btn-light">👍 Like</button>
-                                    <button type="button" class="btn btn-light">👎 Dislike</button>
-                                </div>
-                            </div>
+        <div class="row">
+          <div class="col-12 col-md-10 col-lg-8">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <img src="img/baby happy.jpeg" alt="User's profile picture" class="rounded-circle mr-2" width="50" height="50">
+                  <h5 class="card-title mb-0">Title</h5>
+                </div>
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <img src="img/trophy.jpg" class="card-img-top" alt="Post image">
+              <div class="card-body overflow-auto">
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porttitor.</p>
+                <!-- Delete button added here -->
+                <button id="delete-post-button" type="button" class="btn btn-danger">Delete Post</button>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-8">
+                    <div id="comments-section">
+                      <form id="post-form">
+                        <div class="form-group">
+                          <label for="new-comment">Add a comment:</label>
+                          <textarea class="form-control" id="new-comment" rows="3"></textarea>
                         </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                      <ul class="list-group list-group-flush">
+                        <!-- Existing comments will go here -->
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                      </ul>
                     </div>
                   </div>
+                  <div class="col-4 d-flex justify-content-end">
+                    <div id="reactions">
+                      <button type="button" class="btn btn-light">👍 Like</button>
+                      <button type="button" class="btn btn-light">👎 Dislike</button>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
           </div>
+        </div>
       </div>
-  </main>
+    </main>
     <footer class="footer bg-light fixed-bottom">
       <div class="container text-center">
         <div class="row d-flex align-items-center">
