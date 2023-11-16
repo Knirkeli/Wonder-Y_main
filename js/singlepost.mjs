@@ -128,3 +128,46 @@ if (deleteButton !== null) {
   });
 }
 
+const form = document.querySelector("#post-form");
+if (form !== null) {
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+  
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get("id");
+    console.log("Post ID:", postId);
+  
+    const token = localStorage.getItem("accessToken");
+  
+    const comment = document.querySelector("#new-comment").value;
+    const jsonData = {
+      body: comment,
+    };
+  
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jsonData),
+    };
+  
+    try {
+      const response = await fetch(
+        `https://api.noroff.dev/api/v1/social/posts/${postId}/comment`,
+        fetchOptions
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to submit comment");
+      }
+  
+      console.log("Comment submitted successfully");
+      // Re-fetch the post and update the comments section
+      fetchPost();
+    } catch (error) {
+      console.error(error);
+    }
+  });
+}
