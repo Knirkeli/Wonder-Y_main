@@ -22,7 +22,7 @@ const fetchPost = async () => {
   };
 
   const response = await fetch(
-    `https://api.noroff.dev/api/v1/social/posts/${postId}`,
+    `https://api.noroff.dev/api/v1/social/posts/${postId}?_comments=true`,
     fetchOptions
   );
 
@@ -48,6 +48,30 @@ const fetchPost = async () => {
   const postBody = document.querySelector(".card-text");
   if (postBody !== null) {
     postBody.textContent = responseData.body;
+  }
+
+  const commentsSection = document.querySelector("#comments-section ul");
+  if (commentsSection !== null) {
+    // Remove all existing comments
+    while (commentsSection.firstChild) {
+      commentsSection.firstChild.remove();
+    }
+
+    if (responseData.comments && responseData.comments.length > 0) {
+      // Add each comment as a new list item
+      responseData.comments.forEach(comment => {
+        const listItem = document.createElement("li");
+        listItem.textContent = comment.body;
+        listItem.classList.add("list-group-item");
+        commentsSection.appendChild(listItem);
+      });
+    } else {
+      // If there are no comments, add a list item with the text "Be the first to comment"
+      const listItem = document.createElement("li");
+      listItem.textContent = "Be the first to comment";
+      listItem.classList.add("list-group-item");
+      commentsSection.appendChild(listItem);
+    }
   }
 };
 
@@ -103,3 +127,4 @@ if (deleteButton !== null) {
     }
   });
 }
+
