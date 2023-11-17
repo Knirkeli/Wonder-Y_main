@@ -75,11 +75,6 @@
                     <input type="password" class="form-control" id="password" required pattern=".{8,}" oninvalid="this.setCustomValidity('Password must be at least 8 characters long.')" oninput="this.setCustomValidity('')" />
                     <div id="passwordError" class="text-danger"></div>
                   </div>
-                  <div class="mb-3">
-                    <label for="userImage" class="form-label">Upload Image</label>
-                    <input type="file" class="form-control" id="userImage" accept=".jpg, .jpeg, .png"/>
-                    <div id="imageError" class="text-danger"></div>
-                  </div>
                   <button type="submit" class="btn btn-primary" id="signupButton">Sign up</button>
                   <button type="button" class="btn btn-secondary" id="goToLogin">Or sign in</button>
                 </form>
@@ -100,9 +95,9 @@
               <div class="modal-body">
                 <form id="login-form" action="profile.html" novalidate>
                   <div class="mb-3">
-                    <label for="loginUsername" class="form-label">Noroff mail</label>
-                    <input type="text" class="form-control" id="loginUsername" required pattern="^[a-zA-Z0-9_]*$" oninvalid="this.setCustomValidity('Username must not contain punctuation symbols apart from underscore (_).')" oninput="this.setCustomValidity('')" />
-                    <div id="loginUsernameError" class="text-danger"></div>
+                    <label for="loginMail" class="form-label">Noroff mail</label>
+                    <input type="text" class="form-control" id="loginMail" required pattern=".+@(noroff\.no|stud\.noroff\.no)$" oninvalid="this.setCustomValidity('Username must not contain punctuation symbols apart from underscore (_).')" oninput="this.setCustomValidity('')" />
+                    <div id="loginMailError" class="text-danger"></div>
                   </div>
                   <div class="mb-3">
                     <label for="loginPassword" class="form-label">Password</label>
