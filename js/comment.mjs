@@ -41,3 +41,5 @@ export const submitComment = async (postId, comment) => {
     console.error(error);
   }
 };
+
+cleanup is fixed
