@@ -67,6 +67,8 @@
  * @async
  * @function updatePost
  */
+import { fetchPost } from './singlepost.mjs';
+
 const updatePost = async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get("id");
@@ -109,9 +111,11 @@ const updatePost = async () => {
       console.log("Post updated successfully");
       // Re-fetch the post and update the page
       fetchPost();
-    } catch (error) {
-      console.error(error);
-    }
+   // Hide the edit form
+   document.querySelector("#edit-post-form").style.display = "none";
+} catch (error) {
+  console.error(error);
+}
   };
   
   // Function to show the edit form and populate it with current post data

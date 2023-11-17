@@ -1,3 +1,5 @@
+// import { submitComment } from './comment.mjs';
+
 // /**
 //  * Fetches a post and updates the HTML with the post data.
 //  * @async
@@ -30,11 +32,11 @@
 
 //   console.log(responseData);
 
-//   // Update the HTML with the post data
-//   const postTitle = document.querySelector(".card-title h5");
-//   if (postTitle !== null) {
-//     postTitle.textContent = responseData.title;
-//   }
+// // Update the HTML with the post data
+// const postTitle = document.querySelector(".card-title");
+// if (postTitle !== null) {
+//   postTitle.textContent = responseData.title;
+// }
 
 //   const postImage = document.querySelector(".card-img-top");
 //   if (postImage !== null) {
@@ -89,8 +91,6 @@
 // // Call the function after the page has loaded
 // window.addEventListener("load", fetchPost);
 
-
-
 // const form = document.querySelector("#post-form");
 // if (form !== null) {
 //   form.addEventListener("submit", async event => {
@@ -100,38 +100,11 @@
 //     const postId = urlParams.get("id");
 //     console.log("Post ID:", postId);
   
-//     const token = localStorage.getItem("accessToken");
-  
 //     const comment = document.querySelector("#new-comment").value;
-//     const jsonData = {
-//       body: comment,
-//     };
   
-//     const fetchOptions = {
-//       method: "POST",
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(jsonData),
-//     };
-  
-//     try {
-//       const response = await fetch(
-//         `https://api.noroff.dev/api/v1/social/posts/${postId}/comment`,
-//         fetchOptions
-//       );
-  
-//       if (!response.ok) {
-//         throw new Error("Failed to submit comment");
-//       }
-  
-//       console.log("Comment submitted successfully");
-//       // Re-fetch the post and update the comments section
-//       fetchPost();
-//     } catch (error) {
-//       console.error(error);
-//     }
+//     await submitComment(postId, comment);
+//     // Re-fetch the post and update the comments section
+//     fetchPost();
 //   });
 // }
 
@@ -141,8 +114,9 @@ import { submitComment } from './comment.mjs';
  * Fetches a post and updates the HTML with the post data.
  * @async
  * @function fetchPost
+ * @returns {Promise<void>}
  */
-const fetchPost = async () => {
+export const fetchPost = async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get("id");
 
@@ -169,11 +143,11 @@ const fetchPost = async () => {
 
   console.log(responseData);
 
-// Update the HTML with the post data
-const postTitle = document.querySelector(".card-title");
-if (postTitle !== null) {
-  postTitle.textContent = responseData.title;
-}
+  // Update the HTML with the post data
+  const postTitle = document.querySelector(".card-title");
+  if (postTitle !== null) {
+    postTitle.textContent = responseData.title;
+  }
 
   const postImage = document.querySelector(".card-img-top");
   if (postImage !== null) {
@@ -215,8 +189,8 @@ if (postTitle !== null) {
 };
 
 /**
-* Fetches a post when the button is clicked.
-*/
+ * Fetches a post when the button is clicked.
+ */
 const button = document.querySelector("#fetch-post-button");
 if (button !== null) {
   button.addEventListener("click", () => {
@@ -228,6 +202,9 @@ if (button !== null) {
 // Call the function after the page has loaded
 window.addEventListener("load", fetchPost);
 
+/**
+ * Handles the form submission event.
+ */
 const form = document.querySelector("#post-form");
 if (form !== null) {
   form.addEventListener("submit", async event => {
