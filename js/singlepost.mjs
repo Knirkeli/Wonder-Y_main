@@ -141,8 +141,6 @@ export const fetchPost = async () => {
 
   const responseData = await response.json();
 
-  console.log(responseData);
-
   // Update the HTML with the post data
   const postTitle = document.querySelector(".card-title");
   if (postTitle !== null) {
@@ -194,7 +192,6 @@ export const fetchPost = async () => {
 const button = document.querySelector("#fetch-post-button");
 if (button !== null) {
   button.addEventListener("click", () => {
-    console.log("Button clicked");
     fetchPost();
   });
 }
@@ -212,7 +209,6 @@ if (form !== null) {
   
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get("id");
-    console.log("Post ID:", postId);
   
     const comment = document.querySelector("#new-comment").value;
   

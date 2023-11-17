@@ -44,7 +44,6 @@ const updatePost = async () => {
         throw new Error("Failed to update post");
       }
   
-      console.log("Post updated successfully");
       // Re-fetch the post and update the page
       fetchPost();
    // Hide the edit form

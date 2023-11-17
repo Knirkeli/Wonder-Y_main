@@ -30,8 +30,6 @@ export const createPost = async () => {
 
         const responseData = await response.json();
 
-        console.log(responseData);
-
         // Retrieve the newly created post
         const newPost = await getPost(responseData.id);
 
@@ -61,8 +59,6 @@ export const getPost = async (postId) => {
     );
 
     const responseData = await response.json();
-
-    console.log(responseData);
 
     return responseData;
 }

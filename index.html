@@ -75,11 +75,6 @@
                     <input type="password" class="form-control" id="password" required pattern=".{8,}" oninvalid="this.setCustomValidity('Password must be at least 8 characters long.')" oninput="this.setCustomValidity('')" />
                     <div id="passwordError" class="text-danger"></div>
                   </div>
-                  <div class="mb-3">
-                    <label for="userImage" class="form-label">Upload Image</label>
-                    <input type="file" class="form-control" id="userImage" accept=".jpg, .jpeg, .png"/>
-                    <div id="imageError" class="text-danger"></div>
-                  </div>
                   <button type="submit" class="btn btn-primary" id="signupButton">Sign up</button>
                   <button type="button" class="btn btn-secondary" id="goToLogin">Or sign in</button>
                 </form>
