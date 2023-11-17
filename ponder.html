@@ -11,6 +11,7 @@
     <script type="module" src="js/singlepost.mjs"></script>
     <script type="module" src="js/react.mjs"></script>
     <script type="module" src="js/delete_post.mjs"></script>
+    <script type="module" src="js/edit_post.mjs"></script>
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Post</title>
   </head>
@@ -66,7 +67,31 @@
               <img src="img/trophy.jpg" class="card-img-top" alt="Post image">
               <div class="card-body overflow-auto">
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porttitor.</p>
-                <!-- Delete button added here -->
+    
+                <!-- Edit form -->
+                <div id="edit-post-form" style="display: none;">
+                  <div class="form-group">
+                    <label for="edit-title">Title:</label>
+                    <input type="text" class="form-control" id="edit-title">
+                  </div>
+                  <div class="form-group">
+                    <label for="edit-body">Body:</label>
+                    <textarea class="form-control" id="edit-body" rows="3"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="edit-tags">Tags (comma-separated):</label>
+                    <input type="text" class="form-control" id="edit-tags">
+                  </div>
+                  <div class="form-group">
+                    <label for="edit-media">Media URL:</label>
+                    <input type="text" class="form-control" id="edit-media">
+                  </div>
+                  <button type="button" id="submit-edit-button" class="btn btn-primary">Submit</button>
+                </div>
+    
+                <!-- Edit button -->
+                <button id="edit-post-button" type="button" class="btn btn-primary">&#9998; Edit Post</button>
+                <!-- Delete button -->
                 <button id="delete-post-button" type="button" class="btn btn-danger">Delete Post</button>
               </div>
               <div class="card-footer">
