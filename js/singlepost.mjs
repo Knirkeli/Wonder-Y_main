@@ -169,11 +169,11 @@ const fetchPost = async () => {
 
   console.log(responseData);
 
-  // Update the HTML with the post data
-  const postTitle = document.querySelector(".card-title h5");
-  if (postTitle !== null) {
-    postTitle.textContent = responseData.title;
-  }
+// Update the HTML with the post data
+const postTitle = document.querySelector(".card-title");
+if (postTitle !== null) {
+  postTitle.textContent = responseData.title;
+}
 
   const postImage = document.querySelector(".card-img-top");
   if (postImage !== null) {
