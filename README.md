@@ -1,4 +1,4 @@
-# css-frameworks-ca
+# JS2- course assignment
 
 # Social Media Page
 
@@ -43,13 +43,3 @@ this can be run locally using the live server plugin in vscode.
 ## Authors
 
 - Eirik Kirkeli
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used.
-- Inspiration.
-- etc.
