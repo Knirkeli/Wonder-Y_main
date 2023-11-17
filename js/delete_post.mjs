@@ -14,16 +14,36 @@ async function checkPostAuthor() {
     return;
   }
 
+  const token = localStorage.getItem("accessToken");
+  console.log('Token:', token);
+
+  const fetchOptions = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   // Fetch the post details with the author included
-  const postResponse = await fetch(`https://api.noroff.dev/api/v1/social/posts/${postId}?_author=true`);
+  const postResponse = await fetch(`https://api.noroff.dev/api/v1/social/posts/${postId}?_author=true`, fetchOptions);
+
+  if (!postResponse.ok) {
+    console.error("Failed to fetch post details");
+    return;
+  }
+
   const postData = await postResponse.json();
 
-  // Check if the current user is the author of the post
-  const currentUser = localStorage.getItem("currentUser");
-  if (postData.author.username !== currentUser) {
-    // If the current user is not the author, hide the delete button
-    deleteButton.style.display = "none";
-  }
+  console.log('Post author object:', postData.author);
+
+// Check if the current user is the author of the post
+const currentUser = localStorage.getItem("username");
+console.log('Current user:', currentUser);
+console.log('Post author:', postData.author.name);
+if (postData.author && postData.author.name !== currentUser) {
+  // If the current user is not the author, hide the delete button
+  deleteButton.style.display = "none";
+}
 }
 
 // Call the function when the page loads
