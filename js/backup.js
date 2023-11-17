@@ -103,3 +103,24 @@
 //     }
 //   });
 // }
+
+import { submitComment } from './comment.mjs';
+
+// ...
+
+const form = document.querySelector("#post-form");
+if (form !== null) {
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+  
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get("id");
+    console.log("Post ID:", postId);
+  
+    const comment = document.querySelector("#new-comment").value;
+  
+    await submitComment(postId, comment);
+    // Re-fetch the post and update the comments section
+    fetchPost();
+  });
+}
